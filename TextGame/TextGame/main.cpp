@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <Windows.h>
 using namespace std;
 
 //Attempt at making a turn-based rpg
@@ -10,8 +11,47 @@ int playerInventory[3] = { 1, 5, 3 }; //1. Sword 2. Potion 3. Mana Potion
 string enemy;
 string playerCommand;
 
+void ClearScreen()
+{
+	HANDLE                     hStdOut;
+	CONSOLE_SCREEN_BUFFER_INFO csbi;
+	DWORD                      count;
+	DWORD                      cellCount;
+	COORD                      homeCoords = { 0, 0 };
+
+	hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	if (hStdOut == INVALID_HANDLE_VALUE) return;
+
+	/* Get the number of cells in the current buffer */
+	if (!GetConsoleScreenBufferInfo(hStdOut, &csbi)) return;
+	cellCount = csbi.dwSize.X *csbi.dwSize.Y;
+
+	/* Fill the entire buffer with spaces */
+	if (!FillConsoleOutputCharacter(
+		hStdOut,
+		(TCHAR) ' ',
+		cellCount,
+		homeCoords,
+		&count
+	)) return;
+
+	/* Fill the entire buffer with the current colors and attributes */
+	if (!FillConsoleOutputAttribute(
+		hStdOut,
+		csbi.wAttributes,
+		cellCount,
+		homeCoords,
+		&count
+	)) return;
+
+	/* Move the cursor home */
+	SetConsoleCursorPosition(hStdOut, homeCoords);
+}
+
 void battlePhase()
 {
+	//system("Color 1A");
+
 	bool turnEnd = false;
 
 	while (enemyHP > 0 || playerHP > 0)
@@ -20,11 +60,11 @@ void battlePhase()
 		{
 			break;
 		}
-
 		cout << "Enemy " << enemy << " would like to fight!" << endl;
 		cout << "You currently have " << playerHP << " HP." << endl;
 		cout << "\nWhat would you like to do?\nFight\nInventory\nRun\n" << endl;
 		cin >> playerCommand;
+		ClearScreen();
 
 		if (playerCommand == "fight")
 		{
@@ -48,6 +88,7 @@ void battlePhase()
 			cout << "In your bag, you have " << playerInventory[1] << " Health Potions and " << playerInventory[2] << " Mana Potions. Do you wan to drink a HP or MP?" << endl;
 			cout << "(Available Commands: HP, MP, back" << endl;
 			cin >> playerCommand;
+			ClearScreen();
 
 			if (playerCommand == "HP" || playerCommand == "hp")
 			{
@@ -59,7 +100,7 @@ void battlePhase()
 			}
 			if (playerCommand == "back")
 			{
-
+				ClearScreen();
 			}
 		}
 
