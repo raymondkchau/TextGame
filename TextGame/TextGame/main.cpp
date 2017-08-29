@@ -1,8 +1,11 @@
 #include <iostream>
+#include "time.h"
 
 void main()
 {
+	char end;
 	int phase = 0;
+
 	switch (phase)
 	{
 	case 0:
@@ -14,11 +17,15 @@ void main()
 
 	case 1:
 	{
-		while (true)
-		{
-			
-		}
+		time();
+	}
 
+	case 2:
+	{
+		std::cout << "Let's see how you did..." << std::endl;
 	}
 	}
+
+	std::cout << "Enter any key to continue..." << std::endl;
+	std::cin >> end;
 }

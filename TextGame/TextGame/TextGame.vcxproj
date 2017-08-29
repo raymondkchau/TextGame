@@ -112,9 +112,11 @@
   <ItemGroup>
     <ClCompile Include="clearScreen.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="clearScreen.h" />
+    <ClInclude Include="time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,8 @@
+#define NOMINMAX
 #include <Windows.h>
-
+#include <iostream>
+#include <limits>
+#include "clearScreen.h"
 
 void clearScreen()
 {
@@ -36,4 +39,24 @@ void clearScreen()
 
 	/* Move the cursor home */
 	SetConsoleCursorPosition(hStdOut, homeCoords);
+}
+
+int clearInput(int x)
+{
+	while (!(std::cin >> x))
+	{
+		std::cin.clear(); //Clears failbit from character
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //Ignores bad input
+		std::cout << "Invalid input. Please enter a number between 1 and 3." << std::endl;
+	}
+
+	std::cout << std::endl;
+	return x;
+}
+
+void next()
+{
+	char next[80];
+	std::cout << "Enter any key to continue..." << std::endl;
+	std::cin >> next;
 }
