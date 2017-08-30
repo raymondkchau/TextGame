@@ -1,5 +1,9 @@
 #include <iostream>
 #include "time.h"
+//#include <Windows.h>
+//#include <thread>
+//#include <chrono>
+using namespace std;
 
 void main()
 {
@@ -29,3 +33,37 @@ void main()
 	std::cout << "Enter any key to continue..." << std::endl;
 	std::cin >> end;
 }
+
+
+/*
+void colorPicker(int color)
+{
+	//changes text color
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}
+
+void delayText(int millisec, char word[])
+{
+	for (int i = 0; i < strlen(word); i++)
+	{
+		int rando = rand() % 15 + 1;
+		colorPicker(rando);
+		cout << word[i];
+		this_thread::sleep_for(chrono::milliseconds(millisec));
+	}
+}
+
+void toot()
+{
+	//number changes color. use before each cout to change the color till otherwise specified.
+	colorPicker(5);
+	std::cout << std::endl;
+	std::cout << "LOL" << std::endl;
+	delayText(300, "SLLLLLOOOOOOWWWWW MOOOOOOOTTTTTTIIIIOOOONNN");
+
+	while (true)
+	{
+
+	}
+}
+*/
