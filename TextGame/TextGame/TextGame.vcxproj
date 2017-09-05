@@ -110,11 +110,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="action.cpp" />
     <ClCompile Include="clearScreen.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="time.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="action.h" />
     <ClInclude Include="clearScreen.h" />
     <ClInclude Include="time.h" />
   </ItemGroup>

@@ -60,3 +60,15 @@ void next()
 	std::cout << "Enter any key to continue..." << std::endl;
 	std::cin >> next;
 }
+
+void clamp(int &clamp)
+{
+	if (clamp < 0)
+	{
+		clamp = 0;
+	}
+	else if (clamp > 100)
+	{
+		clamp = 100;
+	}
+}

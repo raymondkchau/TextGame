@@ -1,5 +1,6 @@
 #include <iostream>
 #include "time.h"
+#include "clearScreen.h"
 //#include <Windows.h>
 //#include <thread>
 //#include <chrono>
@@ -15,8 +16,9 @@ void main()
 	case 0:
 	{
 		std::cout << "Your good ol' friend Gary has decided to take a 2 week vacation. You offered to watch his pet." << std::endl;
-		std::cout << "\"Make sure you take care of it\" he says, \"its my whole world. I don't know what I'd do if I lost it.\"" << std::endl;
-		std::cout << "Now that Gary has gone and the two of you are at home," << std::endl;
+		std::cout << "\"Make sure you take care of it,\" he says, \"its my whole world. I don't know what I'd do if I lost it.\"" << std::endl;
+		std::cout << "Now that Gary has gone, the two of you are alone at home," << std::endl;
+		next();
 	}
 
 	case 1:
@@ -26,15 +28,16 @@ void main()
 
 	case 2:
 	{
+		ending();
 		std::cout << "Let's see how you did..." << std::endl;
+		stats();
 	}
 	}
 
-	std::cout << "Enter any key to continue..." << std::endl;
-	std::cin >> end;
+	next();
 }
 
-
+//color changer and text delayer tutorial
 /*
 void colorPicker(int color)
 {
