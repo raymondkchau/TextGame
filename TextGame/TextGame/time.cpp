@@ -319,16 +319,19 @@ void ending()
 	if (affection <= 100 && money > 50)
 	{
 		//great end
+		std::cout << "In the two weeks you had together, you and your pet have bonded extremely well." << std::endl;
 	}
 	
 	if (affection <= 100 && money <= 50)
 	{
 		//good end, through sacrifice
+		std::cout << "Although you are not poorer than you started, you cared for your pet moreso than yourself." << std::endl;
 	}
 
 	if (badEnd = true)
 	{
 		//bad end
+		std::cout << "Not willing to stay any longer, your pet has left you." << std::endl;
 	}
 }
 
